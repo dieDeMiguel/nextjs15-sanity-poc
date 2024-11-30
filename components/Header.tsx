@@ -1,11 +1,12 @@
 'use client';
 import Link from 'next/link';
-import { useUser } from '@clerk/nextjs';
+import { SignInButton, UserButton, useUser } from '@clerk/nextjs';
 import Form from 'next/form';
 import { TrolleyIcon } from '@sanity/icons';
 
 export default function Header() {
   const { user } = useUser();
+  const createClerkPasskey = async () => {};
 
   return (
     <header className="flex flex-wrap items-center justify-between px-4 py-2">
@@ -35,6 +36,25 @@ export default function Header() {
             <span>My Basket</span>
           </Link>
         </div>
+        {user ? (
+          <div className="flex items-center space-x-2">
+            <UserButton />
+            <div className="hidden text-xs sm:block">
+              <p className="text-gray-400">Welcome Back</p>
+              <p className="font-bold">{user.fullName}!</p>
+            </div>
+          </div>
+        ) : (
+          <SignInButton mode="modal" />
+        )}
+        {user?.passkeys.length === 0 && (
+          <button
+            onClick={createClerkPasskey}
+            className="animate-pulse rounded border border-blue-300 bg-white px-4 py-2 font-bold text-blue-500 hover:bg-blue-700 hover:text-white"
+          >
+            Create a passkey now
+          </button>
+        )}
       </div>
     </header>
   );
