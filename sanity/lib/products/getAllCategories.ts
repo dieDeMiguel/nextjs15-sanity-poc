@@ -1,5 +1,6 @@
 import { defineQuery } from "next-sanity";
-import { sanityFetch } from "./live";
+import { sanityFetch } from "../live";
+
 
 export const getAllCategories = async () => {
   const ALL_CATEGORIES_QUERY = defineQuery(`
