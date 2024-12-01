@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '@/sanity.types';
 import { imageUrl } from '@/sanity/lib/imageUrl';
+import { cn } from '@/lib/utils';
 
 function ProductThumb({ product }: { product: Product }) {
   const isOutOfStock = product.stock !== null && (product.stock ?? 1) <= 0;
@@ -9,9 +10,10 @@ function ProductThumb({ product }: { product: Product }) {
   return (
     <Link
       href={`/product/${product.slug?.current}`}
-      className={`group flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md ${
-        isOutOfStock ? 'opacity-50' : ''
-      }`}
+      className={cn(
+        'group flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md',
+        { 'opacity-50': isOutOfStock }
+      )}
     >
       <div className="relative aspect-square h-full w-full overflow-hidden">
         {product.image && (
