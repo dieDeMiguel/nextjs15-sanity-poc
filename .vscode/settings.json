@@ -3,7 +3,8 @@
 "editor.defaultFormatter": "esbenp.prettier-vscode",
 "cSpell.words": [
   "hotspot",
-  "Shopr"
+  "Shopr",
+  "stega"
 ],
 "typescript.tsdk": "node_modules/typescript/lib"
 }
