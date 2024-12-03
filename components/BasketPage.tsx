@@ -30,7 +30,8 @@ function BasketPage() {
               <div
                 className="flex min-w-0 flex-1 cursor-pointer items-center"
                 onClick={() => {
-                  router.push(`/store/product/${item.product.slug?.current}`);
+                  console.log('clicked', item.product.slug?.current);
+                  router.push(`/product/${item.product.slug?.current}`);
                 }}
               >
                 <div className="mr-4 h-20 w-20 flex-shrink-0 sm:h-24 sm:w-24">
