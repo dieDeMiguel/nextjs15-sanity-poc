@@ -2,7 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import useBasketStore from '../store';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -65,4 +65,10 @@ function SuccessPage() {
   );
 }
 
-export default SuccessPage;
+export default function WrappedSuccessPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SuccessPage />
+    </Suspense>
+  );
+}
