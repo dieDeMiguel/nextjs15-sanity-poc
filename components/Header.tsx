@@ -3,9 +3,13 @@ import Link from 'next/link';
 import { ClerkLoaded, SignedIn, SignInButton, UserButton, useUser } from '@clerk/nextjs';
 import Form from 'next/form';
 import { PackageIcon, TrolleyIcon } from '@sanity/icons';
+import useBasketStore from '@/app/store/store';
 
 export default function Header() {
   const { user } = useUser();
+
+  const itemCount = useBasketStore((state) => state.items.reduce((total, item) => total + item.quantity, 0));
+
   const createClerkPasskey = async () => {
     try {
       const response = await user?.createPasskey();
@@ -41,6 +45,9 @@ export default function Header() {
               className="relative flex flex-1 items-center justify-center space-x-2 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 sm:flex-none sm:justify-start"
             >
               <TrolleyIcon className="h-6 w-6" />
+              <span className="absolute -right-2 -top-2 flex size-5 items-center justify-center rounded-full bg-red-500 text-xs text-white">
+                {itemCount}
+              </span>
               <span>My Basket</span>
             </Link>
 
