@@ -1,6 +1,6 @@
 'use server'
 
-import { BasketItem } from '@/app/store/store'
+import { BasketItem } from '@/app/checkout/store'
 import stripe from '@/lib/stripe'
 
 import { imageUrl } from '@/sanity/lib/imageUrl'
@@ -44,7 +44,7 @@ export async function createCheckoutSession(
         ? `https://${process.env.VERCEL_URL}`
         : `${process.env.NEXT_PUBLIC_BASE_URL}`
 
-    const successUrl = `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}&orderNumber=${metadata.orderNumber}`
+    const successUrl = `${baseUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}&orderNumber=${metadata.orderNumber}`
 
     const cancelUrl = `${baseUrl}/basket`
 

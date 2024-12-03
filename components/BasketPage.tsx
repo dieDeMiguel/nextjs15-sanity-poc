@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { imageUrl } from '@/sanity/lib/imageUrl';
 import Loader from '@/components/Loader';
 import { createCheckoutSession, type Metadata } from '@/actions/createCheckoutSession';
-import useBasketStore from '@/app/store/store';
+import useBasketStore from '@/app/checkout/store';
 import AddToBasketButton from './AddToBasketButton';
 
 function BasketPage() {

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ClerkLoaded, SignedIn, SignInButton, UserButton, useUser } from '@clerk/nextjs';
 import Form from 'next/form';
 import { PackageIcon, TrolleyIcon } from '@sanity/icons';
-import useBasketStore from '@/app/store/store';
+import useBasketStore from '@/app/checkout/store';
 
 export default function Header() {
   const { user } = useUser();
