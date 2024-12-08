@@ -1,6 +1,6 @@
 'use server'
 
-import { BasketItem } from '@/app/checkout/store'
+import { BasketItem } from '@/app/(store)/checkout/store'
 import stripe from '@/lib/stripe'
 
 import { imageUrl } from '@/sanity/lib/imageUrl'

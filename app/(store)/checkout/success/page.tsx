@@ -38,14 +38,6 @@ function SuccessPage() {
                 <span className="font-mono text-sm text-green-600">{orderNumber}</span>
               </p>
             )}
-            {/* 
-    {sessionId && (
-      <p className="text-gray-600 flex justify-between">
-        <span>Transaction ID:</span>
-        <span className="font-mono text-sm">{sessionId}</span>
-      </p>
-    )} 
-    */}
           </div>
         </div>
 

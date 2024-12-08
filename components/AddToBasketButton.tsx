@@ -1,6 +1,6 @@
 'use client';
 
-import useBasketStore from '@/app/checkout/store';
+import useBasketStore from '@/app/(store)/checkout/store';
 import { cn } from '@/lib/utils';
 import { Product } from '@/sanity.types';
 import { useEffect, useState } from 'react';
