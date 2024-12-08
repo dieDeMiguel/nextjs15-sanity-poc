@@ -1,5 +1,5 @@
 import { Metadata } from '@/actions/createCheckoutSession';
-import { sendOrderConfirmationEmail } from '@/lib/mail';
+// import { sendOrderConfirmationEmail } from '@/lib/mail';
 import stripe from '@/lib/stripe';
 import { backendClient } from '@/sanity/lib/backendClient';
 import { headers } from 'next/headers';
@@ -43,13 +43,13 @@ export async function POST(req: NextRequest) {
       const order = await createOrderInSanity(session)
       console.log('Order created in Sanity:', order)
 
-      const mailToSend = {
-        to: session.metadata?.customerEmail as string,
-        subject: 'Order confirmation',
-        text: `Your order has been received. Order number: ${order.orderNumber}`,
-      }
+      // const mailToSend = {
+      //   to: session.metadata?.customerEmail as string,
+      //   subject: 'Order confirmation',
+      //   text: `Your order has been received. Order number: ${order.orderNumber}`,
+      // }
 
-      await sendOrderConfirmationEmail({ mailToSend })
+     //  await sendOrderConfirmationEmail({ mailToSend })
     } catch (err) {
       console.error('Error creating order in Sanity:', err)
       return NextResponse.json(
