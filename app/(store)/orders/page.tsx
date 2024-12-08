@@ -1,34 +1,10 @@
 import { formatCurrency } from '@/lib/formatCurrency';
 import { getMyOrders } from '@/lib/orders/getMyOrders';
 import { imageUrl } from '@/sanity/lib/imageUrl';
+import { Order } from '@/types/types';
 import { auth } from '@clerk/nextjs/server';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
-
-export type Order = {
-  orderNumber: string;
-  orderDate: string;
-  status: string;
-  totalPrice: number;
-  currency: string;
-  amountDiscount: number;
-  products: {
-    product: {
-      _id: string;
-      name: string;
-      price: number;
-      image: string;
-    };
-    quantity: number;
-  }[];
-};
-
-export type Product = {
-  _id: string;
-  name: string;
-  price: number;
-  image: string;
-};
 
 async function OrderPage() {
   const { userId } = await auth();
@@ -37,6 +13,7 @@ async function OrderPage() {
   }
 
   const orders = await getMyOrders(userId);
+  console.log('orders', orders);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 p-4">
