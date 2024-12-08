@@ -38,10 +38,9 @@ export async function POST(req: NextRequest) {
 
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session
-
     try {
       const order = await createOrderInSanity(session)
-      console.log('Order created in Sanity:', order)
+      return order;
 
       // const mailToSend = {
       //   to: session.metadata?.customerEmail as string,
@@ -108,7 +107,7 @@ export async function POST(req: NextRequest) {
       totalPrice: amount_total ? amount_total / 100 : 0,
       status: 'paid',
       orderDate: new Date().toISOString(),
-    })
+    });
 
     return order
   }
