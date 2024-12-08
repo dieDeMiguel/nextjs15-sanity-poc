@@ -1,5 +1,5 @@
 import { formatCurrency } from '@/lib/formatCurrency';
-import { getMyOrders } from '@/lib/orders/getMyOrders';
+import { getMyOrders } from '@/sanity/lib/orders/getMyOrders';
 import { imageUrl } from '@/sanity/lib/imageUrl';
 import { Order } from '@/types/types';
 import { auth } from '@clerk/nextjs/server';

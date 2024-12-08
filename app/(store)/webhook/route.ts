@@ -89,7 +89,9 @@ export async function POST(req: NextRequest) {
       },
       quantity: item.quantity || 0,
     }))
-
+    console.log('id:', id);
+    console.log('customer:', customer); 
+    console.log('orderNumber:', orderNumber);
     const order = await backendClient.create({
       _type: 'order',
       orderNumber,

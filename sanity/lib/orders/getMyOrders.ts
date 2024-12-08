@@ -15,8 +15,8 @@ export async function getMyOrders(userId: string) {
           product->
         }
       }
-    `)
-
+    `);
+    console.log('userId', userId);
   try {
     const orders = await sanityFetch({
       query: MY_ORDERS_QUERY,
