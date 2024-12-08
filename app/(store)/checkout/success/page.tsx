@@ -45,7 +45,7 @@ function SuccessPage() {
           <p className="text-gray-600">A confirmation email has been sent to your registered email address.</p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button asChild className="bg-green-600 hover:bg-green-700">
-              <Link href="/store/orders">View Order Details</Link>
+              <Link href="/orders">View Order Details</Link>
             </Button>
             <Button asChild variant="outline">
               <Link href="/store">Continue Shopping</Link>

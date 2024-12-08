@@ -17,16 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider dynamic>
-      <html lang="en">
-        <body>
-          <main>
-            <Header />
-            {children}
-          </main>
-          <SanityLive />
-          <Analytics />
-        </body>
-      </html>
+      <main>
+        <Header />
+        {children}
+      </main>
+      <SanityLive />
+      <Analytics />
     </ClerkProvider>
   );
 }
